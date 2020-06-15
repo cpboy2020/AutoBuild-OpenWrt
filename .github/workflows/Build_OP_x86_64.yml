@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - master
+  push:
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -73,7 +73,6 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    # 添加第三方软件包
     - name: Import external feeds
       working-directory: ./openwrt
       run: |
