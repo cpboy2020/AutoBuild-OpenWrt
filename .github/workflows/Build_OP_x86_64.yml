@@ -64,13 +64,8 @@ jobs:
         REPO_URL: https://github.com/coolsnowwolf/lede
         REPO_BRANCH: master
         #SSH_ACTIONS 开启SSH连接
-        #UPLOAD_BIN_DIR上传BIN目录
-        #UPLOAD_FIRMWARE上传固件目录
         #SSH_ACTIONS: false
-        UPLOAD_BIN_DIR: true
-        UPLOAD_FIRMWARE: true
-        TZ: Asia/Shanghai
-        
+            
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
@@ -80,6 +75,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
+        ./scripts/feeds install -a
         ./scripts/feeds install -a
 
     - name: Import external feeds
@@ -91,17 +87,16 @@ jobs:
         git clone https://github.com/NANXIAO1971/passwall package/passwall
         git clone https://github.com/kenzok8/small package/small
         git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+        git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
         #clash项目 依赖
         #bash、coreutils、coreutils-nohup、coreutils-base64、ipset、iptables、luci、luci-base、libustream-openssl、libopenssl
         #curl、wget、jsonfilter、ca-certificates
-
-        git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
-        
-        #OpenClash项目依赖
-        #luci、luci-base、iptables、dnsmasq-full、coreutils、coreutils-nohup
-        #bash、curl、jsonfilter、ca-certificates、ipset、ip-full、iptables-mod-tproxy、kmod-tun(TUN模式)、luci-compat(Luci-19.07)
-        
+              
         git clone https://github.com/vernesong/OpenClash package/openclash
+        #OpenClash项目依赖
+        #bash、coreutils、coreutils-nohup、ipset、iptables、luci、luci-base、luci-compat(Luci-19.07)
+        #curl、jsonfilter、ca-certificates、dnsmasq-full、ip-full、iptables-mod-tproxy、kmod-tun(TUN模式)
+        
         # Clone OpenClash项目
         #mkdir package/luci-app-openclash
         #cd package/luci-app-openclash
@@ -119,7 +114,7 @@ jobs:
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
         #git clone "your_github_link" package/"your_folder_name"   
         # 再次更新并安装源
-        ./scripts/feeds clean
+        #./scripts/feeds clean
         ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: Configuration Customization - Build_x86_64
@@ -137,37 +132,27 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Build firmware 编译固件
-      working-directory: ./openwrt
+    - name: Multi-thread compile 多线程编译固件
       run: |
-        echo -e "$(nproc) thread build."
-        make -j$(nproc) V=s
-        echo "::set-output name=status::success"
-    
-    - name: 上传BIN目录
-      uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin_Lean_passwall_${{ env.FILENAME }}
-        path: openwrt/bin
-        
-    #- name : Upload artifact
-      #uses: actions/upload-artifact@master
-      #with:
-        #name: OpenWrt
-        #path: openwrt/bin
-
-    - name: 整理文件
-      id: organize
-      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+          working-directory: ./openwrt
+          echo -e "$(nproc) thread build."
+          make -j$(nproc) V=s
+          echo "::set-output name=status::success"
+    - name: Single-thread compile 单线程编译固件
+      if: failure()
+      run: |
+          working-directory: ./openwrt
+          make -j1 V=s
+    - name: Assemble artifact
       run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
+          find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
           find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/targets/ -name "*uefi*img*" | xargs -i mv -f {} ./artifact/
-    - name: 上传固件
+    - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt_firmware_Lean_passwall_${{ env.FILENAME }}
+        name: OpenWrt firmware
         path: ./artifact/
+        
         
