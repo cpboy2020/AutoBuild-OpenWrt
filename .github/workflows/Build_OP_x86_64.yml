@@ -83,6 +83,7 @@ jobs:
         #git clone https://github.com/NANXIAO1971/passwall package/passwall
         #git clone https://github.com/kenzok8/small package/small
         git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+        git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
         git clone https://github.com/vernesong/OpenClash package/openclash
         # Clone OpenClash项目
         #mkdir package/luci-app-openclash
