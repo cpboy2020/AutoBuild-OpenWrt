@@ -84,6 +84,16 @@ jobs:
         #git clone https://github.com/kenzok8/small package/small
         git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
         git clone https://github.com/vernesong/OpenClash package/openclash
+        # Clone OpenClash项目
+        #mkdir package/luci-app-openclash
+        #cd package/luci-app-openclash
+        #git init
+        #git remote add -f origin https://github.com/vernesong/OpenClash.git
+        #git config core.sparsecheckout true
+        #echo "luci-app-openclash" >> .git/info/sparse-checkout
+        #git pull origin master
+        #git branch --set-upstream-to=origin/master master
+        
         git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
         git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
         #svn co https://github.com/kang-mk/openwrt-app-package/trunk/luci-app-eqos package/luci-app-eqos
