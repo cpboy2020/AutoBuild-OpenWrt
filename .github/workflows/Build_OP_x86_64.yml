@@ -11,10 +11,12 @@ on:
   release:
     types: [published]
 
+  # 编辑触发
   #push:
     #branches: 
       #- master
 
+  # 定时触发()
   #schedule:
   #  - cron: 0 8 * * 5
   
@@ -26,10 +28,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout 校验本地文件
       uses: actions/checkout@master
 
-    - name: Initialization environment
+    - name: Initialization environment 初始化编译环境
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
@@ -57,7 +59,7 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
 
-    - name: Clone source code
+    - name: Clone source code 克隆源代码
       env: 
         REPO_URL: https://github.com/coolsnowwolf/lede
         REPO_BRANCH: master
@@ -70,7 +72,6 @@ jobs:
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
-        ./scripts/feeds install -a
         ./scripts/feeds install -a
 
     - name: Import external feeds
@@ -85,7 +86,9 @@ jobs:
         git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
         svn co https://github.com/kang-mk/openwrt-app-package/trunk/luci-app-eqos package/luci-app-eqos
         #git clone "your_github_link" package/"your_folder_name"   
-  
+        # 再次更新并安装源
+        ./scripts/feeds clean
+        ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: Configuration Customization - Build_x86_64
       env:
@@ -95,14 +98,14 @@ jobs:
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
-    - name: Download package
+    - name: Download package 下载软件包
       working-directory: ./openwrt
       run: |
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Build firmware
+    - name: Build firmware 编译固件
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
