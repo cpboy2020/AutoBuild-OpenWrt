@@ -83,7 +83,16 @@ jobs:
         #git clone https://github.com/NANXIAO1971/passwall package/passwall
         #git clone https://github.com/kenzok8/small package/small
         git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+        #clash项目 依赖
+        #bash、coreutils、coreutils-nohup、coreutils-base64、ipset、iptables、luci、luci-base、libustream-openssl、libopenssl
+        #curl、wget、jsonfilter、ca-certificates
+
         git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
+        
+        #OpenClash项目依赖
+        #luci、luci-base、iptables、dnsmasq-full、coreutils、coreutils-nohup
+        #bash、curl、jsonfilter、ca-certificates、ipset、ip-full、iptables-mod-tproxy、kmod-tun(TUN模式)、luci-compat(Luci-19.07)
+        
         git clone https://github.com/vernesong/OpenClash package/openclash
         # Clone OpenClash项目
         #mkdir package/luci-app-openclash
