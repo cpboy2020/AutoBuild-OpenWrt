@@ -81,11 +81,11 @@ jobs:
     - name: Import external feeds
       working-directory: ./openwrt
       run: |
-        #git clone https://github.com/Lienol/openwrt-package package/lienol
+        git clone https://github.com/Lienol/openwrt-package package/lienol
         #git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
         #passwall 3.6-40 版本有一个选项是“使用ipv6” 可以让域名解析为ipv6进行连接
         git clone https://github.com/NANXIAO1971/passwall package/passwall
-        git clone https://github.com/kenzok8/small package/small
+        #git clone https://github.com/kenzok8/small package/small
         git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
         git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
         #clash项目 依赖
