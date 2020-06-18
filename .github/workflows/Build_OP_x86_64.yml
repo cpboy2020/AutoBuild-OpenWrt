@@ -79,30 +79,30 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://github.com/Lienol/openwrt-package package/lienol
-        #git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
+        git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
         #passwall 3.6-40 版本有一个选项是“使用ipv6” 可以让域名解析为ipv6进行连接
-        git clone https://github.com/NANXIAO1971/passwall package/passwall
+        #git clone https://github.com/NANXIAO1971/passwall package/passwall
         #git clone https://github.com/kenzok8/small package/small
-        git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+        #git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
         git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
         #clash项目 依赖
         #bash、coreutils、coreutils-nohup、coreutils-base64、ipset、iptables、luci、luci-base、libustream-openssl、libopenssl
         #curl、wget、jsonfilter、ca-certificates
               
-        git clone https://github.com/vernesong/OpenClash package/openclash
+        #git clone https://github.com/vernesong/OpenClash package/openclash
         #OpenClash项目依赖
         #bash、coreutils、coreutils-nohup、ipset、iptables、luci、luci-base、luci-compat(Luci-19.07)
         #curl、jsonfilter、ca-certificates、dnsmasq-full、ip-full、iptables-mod-tproxy、kmod-tun(TUN模式)
         
         # Clone OpenClash项目
-        #mkdir package/luci-app-openclash
-        #cd package/luci-app-openclash
-        #git init
-        #git remote add -f origin https://github.com/vernesong/OpenClash.git
-        #git config core.sparsecheckout true
-        #echo "luci-app-openclash" >> .git/info/sparse-checkout
-        #git pull origin master
-        #git branch --set-upstream-to=origin/master master
+        mkdir package/luci-app-openclash
+        cd package/luci-app-openclash
+        git init
+        git remote add -f origin https://github.com/vernesong/OpenClash.git
+        git config core.sparsecheckout true
+        echo "luci-app-openclash" >> .git/info/sparse-checkout
+        git pull origin master
+        git branch --set-upstream-to=origin/master master
         
         git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
         git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
@@ -134,7 +134,6 @@ jobs:
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
-        echo "::set-output name=status::success"
           
     - name: Single-thread compile 单线程编译固件
       working-directory: ./openwrt
