@@ -7,6 +7,11 @@
 #=================================================
 #1. Modify default IP #定制默认IP
 sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
+
+# Add Compile-ID(cid)
+cid=$(date "+%Y-%m-%d")
+sed -i "s/R20.5.20/R20.5.20[${cid}]/g" package/lean/default-settings/files/zzz-default-settings
+
 # 自定义定制选项
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings #取消系统默认密码
 sed -i 's#option commit_interval 24h#option commit_interval 10m#g' openwrt/feeds/packages/net/nlbwmon/files/nlbwmon.config #修改流量统计写入为10分钟
