@@ -98,7 +98,7 @@ jobs:
         #git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos
         
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
-        git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+        git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon--cpboy-mod
         #git clone "your_github_link" package/"your_folder_name"   
         # 再次更新并安装源
         ./scripts/feeds clean
