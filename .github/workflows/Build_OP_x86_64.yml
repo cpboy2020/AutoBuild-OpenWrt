@@ -83,17 +83,9 @@ jobs:
         #passwall 3.6-40 版本有一个选项是“使用ipv6” 可以让域名解析为ipv6进行连接
         #git clone https://github.com/NANXIAO1971/passwall package/passwall
         #git clone https://github.com/kenzok8/small package/small
-        #git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
-        #clash项目 依赖
-        #bash、coreutils、coreutils-nohup、coreutils-base64、ipset、iptables、luci、luci-base、libustream-openssl、libopenssl
-        #curl、wget、jsonfilter、ca-certificates
-              
+        
+        #git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash       
         #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/openclash
-        #OpenClash项目依赖
-        #bash、coreutils、coreutils-nohup、ipset、iptables、luci、luci-base、luci-compat(Luci-19.07)
-        #curl、jsonfilter、ca-certificates、dnsmasq-full、ip-full、iptables-mod-tproxy、kmod-tun(TUN模式)
-                
-        #git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
         #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
         #git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos
         
