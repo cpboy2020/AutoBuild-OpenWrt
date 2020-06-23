@@ -27,6 +27,14 @@ sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/usb_printer.lua
 sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/xunlei.lua
 sed -i 's/services/nas/g'  /usr/lib/lua/luci/view/minidlna_status.htm
 
+source ../version
+sed -i '/shadow/d'                     package/lean/default-settings/files/zzz-default-settings
+sed -i '/nas/d'                     package/lean/default-settings/files/zzz-default-settings
+sed -i "s/openwrt.proxy.ustclug.org/op.rosesky.xyz/g"  package/lean/default-settings/files/zzz-default-settings
+sed -i "s/https:/R20.0.0/g"  package/lean/default-settings/files/zzz-default-settings
+sed -i  's/http:/snapshots/g'  package/lean/default-settings/files/zzz-default-settings
+sed -i  "s/R20\(.[0-9].[0-9]\{1,2\}\)/R20.$version/g" package/lean/default-settings/files/zzz-default-settings
+
 
 
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings #取消系统默认密码
