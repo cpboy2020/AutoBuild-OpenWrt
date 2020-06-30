@@ -92,6 +92,7 @@ jobs:
         #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/openclash
         #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
         #git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos
+        git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
         
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
         git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon--cpboy-mod
@@ -136,6 +137,6 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware
+        name: OpenWrt-x86-64 firmware
         path: ./artifact/
         
