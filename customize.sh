@@ -10,6 +10,14 @@ sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config
 
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings #取消系统默认密码
 
+date=`date +%m.%d.%Y`
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='%D Compiled by cpboy'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
+
+# Add Compile-ID(cid)
+#cid=$(date "+%Y-%m-%d")
+#sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
+
 #删除默认密码
 #sed -i "/CYXluq4wUazHjmCDBCqXF/d" openwrt/package/lean/default-settings/files/zzz-default-settings
 
@@ -39,9 +47,6 @@ sed -i 's#密码root##g' openwrt/package/lean/luci-app-haproxy-tcp/luasrc/model/
 sed -i 's#使用说明请##g' openwrt/package/lean/luci-app-haproxy-tcp/luasrc/model/cbi/haproxy.lua #修改haproxy管理页
 sed -i 's#点击这里##g' openwrt/package/lean/luci-app-haproxy-tcp/luasrc/model/cbi/haproxy.lua #修改haproxy管理页
 
-# Add Compile-ID(cid)
-cid=$(date "+%Y-%m-%d")
-sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # 自定义定制选项
 sed -i 's/\"services\"/\"control\"/g' openwrt/package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
