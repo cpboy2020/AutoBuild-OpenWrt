@@ -95,7 +95,7 @@ jobs:
         git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
         
         # 添加 feeds/libsodium
-        git clone https://github.com/shadowsocks/openwrt-feeds package/libs/
+        git clone https://github.com/shadowsocks/openwrt-feeds package/libs-dnscrypt
         # 获取 minisign Makefile
         git clone https://github.com/peter-tank/openwrt-minisign package/minisign
         git clone https://github.com/peter-tank/luci-app-dnscrypt-proxy2 package/luci-app-dnscrypt-proxy2
