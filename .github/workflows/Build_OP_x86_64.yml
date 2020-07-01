@@ -110,8 +110,9 @@ jobs:
     
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
-    #- name: modify feeds 修改插件分类 
-       #chmod +x ./cpboydiy.sh && ./cpboydiy.sh
+    - name: modify feeds 修改插件分类 
+      run: |
+        chmod +x ./cpboydiy.sh && ./cpboydiy.sh
 
 
     - name: Configuration Customization - Build_x86_64
