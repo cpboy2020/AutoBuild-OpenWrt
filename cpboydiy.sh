@@ -10,7 +10,7 @@
 
 # Add Compile-ID(cid)
 cid=$(date "+%Y-%m-%d")
-sed -i "s/R20.6.18/R20.6.20[${cid}]/g" openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # 自定义定制选项
 sed -i 's/\"services\"/\"control\"/g' openwrt/package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
