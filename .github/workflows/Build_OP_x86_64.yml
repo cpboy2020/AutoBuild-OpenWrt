@@ -111,6 +111,7 @@ jobs:
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
     - name: modify feeds 修改插件分类 
+      working-directory: ./openwrt
       run: |
         chmod +x ./cpboydiy.sh && ./cpboydiy.sh
 
