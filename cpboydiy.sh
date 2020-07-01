@@ -49,7 +49,14 @@ sed -i 's/services/dns/g' openwrt/feeds/kenzo/luci-app-smartdns/luasrc/view/smar
 
 sed -i 's/\"services\"/\"dns\"/g' openwrt/package/lean/luci-app-dnsforwarder/luasrc/controller/dnsforwarder.lua
 
-#sed -i 's/\""network"\"/\"nas\"/g' openwrt/package/lean/*/luasrc/controller/eqos.lua
+sed -i 's/\"services\"/\"nas\"/g' openwrt/package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
+sed -i 's/services/nas/g' openwrt/package/lean/luci-app-familycloud/luasrc/view/familycloud/familycloud_status.htm
 
-#sed -i 's/\"services\"/\"vpn\"/g'    openwrt/package/lean/*/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-#sed -i 's/services/vpn/g'  openwrt/package/lean/*/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+sed -i 's/\"services\"/\"vpn\"/g' openwrt/package/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/services/vpn/g' openwrt/package/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/check.htm
+sed -i 's/services/vpn/g' openwrt/package/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/checkport.htm
+sed -i 's/services/vpn/g' openwrt/package/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/refresh.htm
+sed -i 's/services/vpn/g' openwrt/package/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/status.htm
+sed -i 's/services/vpn/g' openwrt/package/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/subscribe.htm
+
+#sed -i 's/\""network"\"/\"nas\"/g' openwrt/package/lean/*/luasrc/controller/eqos.lua
