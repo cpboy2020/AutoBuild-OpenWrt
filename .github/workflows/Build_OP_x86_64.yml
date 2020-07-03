@@ -63,9 +63,9 @@ jobs:
       env: 
         REPO_URL: https://github.com/coolsnowwolf/lede
         REPO_BRANCH: master
-        REPO_URL: https://github.com/project-openwrt/openwrt
-        REPO_BRANCH: openwrt-18.06 
-        run: |
+        #REPO_URL: https://github.com/project-openwrt/openwrt
+        #REPO_BRANCH: openwrt-18.06 
+      run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         sed -i '5s/#//' feeds.conf.default
@@ -95,10 +95,10 @@ jobs:
         #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
         #git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos     
     
-        git clone https://github.com/shadowsocks/openwrt-feeds package/dnscrypt-proxy2   # 添加 feeds/libsodium 
-        rm -rf package/dnscrypt-proxy2/packages/libcares    
-        git clone https://github.com/peter-tank/openwrt-minisign package/dnscrypt-proxy2/minisign    # 获取 minisign Makefile
-        git clone https://github.com/peter-tank/luci-app-dnscrypt-proxy2 package/luci-app-dnscrypt-proxy2
+        #git clone https://github.com/shadowsocks/openwrt-feeds package/dnscrypt-proxy2   # 添加 feeds/libsodium 
+        #rm -rf package/dnscrypt-proxy2/packages/libcares    
+        #git clone https://github.com/peter-tank/openwrt-minisign package/dnscrypt-proxy2/minisign    # 获取 minisign Makefile
+        #git clone https://github.com/peter-tank/luci-app-dnscrypt-proxy2 package/luci-app-dnscrypt-proxy2
                 
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
         git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon--cpboy-mod
