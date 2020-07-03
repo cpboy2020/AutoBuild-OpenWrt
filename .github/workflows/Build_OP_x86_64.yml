@@ -104,6 +104,7 @@ jobs:
         # 再次更新并安装源
         ./scripts/feeds clean
         ./scripts/feeds update -a && ./scripts/feeds install -a
+        rm -rf package/dnscrypt-proxy2/packages/libcares
     
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
