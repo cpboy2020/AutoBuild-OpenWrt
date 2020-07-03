@@ -79,8 +79,8 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://github.com/Lienol/openwrt-package package/openwrt-package
-        git clone https://github.com/kenzok8/openwrt-packages package/openwrt-package/kenzok8     
-        git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr  
+        git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
+        git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
         git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb  #git luci-app-vssr 依赖
         git clone https://github.com/lisaac/luci-lib-docker package/luci-lib-docker #git luci-app-dockerman 依赖
         git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman   
