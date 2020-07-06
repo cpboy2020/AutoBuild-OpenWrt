@@ -72,7 +72,7 @@ sed -i 's/\"services\"/\"dns\"/g' openwrt/package/lean/luci-app-dnsforwarder/lua
 sed -i 's/\"services\"/\"nas\"/g' openwrt/package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
 sed -i 's/services/nas/g' openwrt/package/lean/luci-app-familycloud/luasrc/view/familycloud/familycloud_status.htm
 
-sed -i 's/\"services\"/\"vpn\"/g' openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/services/vpn/g' |xargs grep services -rl openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+#sed -i 's/\"services\"/\"vpn\"/g' openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+#sed -i 's/services/vpn/g' |xargs grep services -rl openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 
 #sed -i 's/\""network"\"/\"nas\"/g' openwrt/package/lean/*/luasrc/controller/eqos.lua
