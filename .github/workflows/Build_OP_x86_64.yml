@@ -82,24 +82,16 @@ jobs:
       run: |
         git clone https://github.com/Lienol/openwrt-package package/openwrt-package
         git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
-        git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
-        git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb  #git luci-app-vssr 依赖
-        git clone https://github.com/lisaac/luci-lib-docker package/luci-lib-docker #git luci-app-dockerman 依赖
-        git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman   
-         
-        #passwall 3.6-40 版本有一个选项是“使用ipv6” 可以让域名解析为ipv6进行连接
-        #git clone https://github.com/NANXIAO1971/passwall package/passwall
-        #git clone https://github.com/kenzok8/small package/small
+        git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
+        git clone https://github.com/jerrykuku/lua-maxminddb package/copy/packages/lua-maxminddb  #git luci-app-vssr 依赖
+        git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
+        git clone https://github.com/Leo-Jo-My/my package/copy/packages
+ 
         #git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash       
         #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/openclash
         #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
         #git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos     
     
-        #git clone https://github.com/shadowsocks/openwrt-feeds package/dnscrypt-proxy2   # 添加 feeds/libsodium 
-        #rm -rf package/dnscrypt-proxy2/packages/libcares    
-        #git clone https://github.com/peter-tank/openwrt-minisign package/dnscrypt-proxy2/minisign    # 获取 minisign Makefile
-        #git clone https://github.com/peter-tank/luci-app-dnscrypt-proxy2 package/luci-app-dnscrypt-proxy2
-                
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
         git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon--cpboy-mod
         git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/luci-theme-atmaterial-ColorIcon
@@ -107,18 +99,18 @@ jobs:
         # 再次更新并安装源
         ./scripts/feeds clean
         ./scripts/feeds update -a && ./scripts/feeds install -a
+        rm -rf package/kenzok8/luci-app-passwall   
         
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
-    #- name: modify feeds 修改插件分类 
-      #working-directory: ./openwrt
-      #run: |
-        #chmod +x ./cpboydiy.sh && ./cpboydiy.sh
-
+    
     - name: Configuration Customization - Build_x86_64
       env:
         CONFIG_FILE: 'x86_64.config'
       run: |
+        #修改插件分类 
+        #chmod +x ./cpboydiy.sh && ./cpboydiy.sh
+        
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
