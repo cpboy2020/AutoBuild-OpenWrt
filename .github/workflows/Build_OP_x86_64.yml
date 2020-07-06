@@ -95,10 +95,19 @@ jobs:
         git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
         git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
         #git clone "your_github_link" package/"your_folder_name"   
+        rm -rf package/kenzok8/luci-app-passwall
+        rm -rf package/lean/luci-app-guest-wifi
+        rm -rf package/lean/luci-app-kodexplorer
+        rm -rf package/lean/luci-app-pppoe-relay
+        rm -rf package/lean/luci-app-ramfree
+        rm -rf package/lean/luci-app-softethervpn
+        rm -rf package/lean/luci-app-v2ray-server
+        rm -rf package/lean/luci-app-verysync
+        
         # 再次更新并安装源
         ./scripts/feeds clean
         ./scripts/feeds update -a && ./scripts/feeds install -a
-        rm -rf package/kenzok8/luci-app-passwall   
+ 
         
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
