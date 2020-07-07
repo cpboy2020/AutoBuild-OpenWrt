@@ -98,13 +98,11 @@ jobs:
         #git clone "your_github_link" package/"your_folder_name"   
 	
         #rm -rf package/openwrt-package/package/simple-obfs
-	rm -rf package/kenzok8/luci-app-passwall
-	
-	rm -rf package/cpboy/packages/dnscrypt-proxy-full
-	rm -rf package/cpboy/packages/openwrt-dnsforwarder
-	rm -rf package/cpboy/packages/openwrt-simple-obfs
-	rm -rf package/cpboy/packages/openwrt-v2ray-plugin
-
+        rm -rf package/kenzok8/luci-app-passwall
+        rm -rf package/cpboy/packages/dnscrypt-proxy-full
+        rm -rf package/cpboy/packages/openwrt-dnsforwarder
+        rm -rf package/cpboy/packages/openwrt-simple-obfs
+        rm -rf package/cpboy/packages/openwrt-v2ray-plugin
         rm -rf package/lean/luci-app-guest-wifi
         rm -rf package/lean/luci-app-kodexplorer
         rm -rf package/lean/luci-app-pppoe-relay
