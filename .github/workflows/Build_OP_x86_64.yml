@@ -114,6 +114,8 @@ jobs:
         rm -rf package/lean/luci-app-v2ray-server
         
         rm -rf package/kenzok8/luci-app-passwall
+        rm -rf package/kenzok8/microsocks
+        rm -rf package/kenzok8/redsocks2
         rm -rf package/cpboy/packages/dnscrypt-proxy-full
         rm -rf package/cpboy/packages/openwrt-dnsforwarder
         rm -rf package/cpboy/packages/openwrt-simple-obfs
