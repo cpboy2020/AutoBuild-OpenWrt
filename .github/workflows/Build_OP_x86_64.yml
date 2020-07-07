@@ -97,20 +97,27 @@ jobs:
         git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark        
         #git clone "your_github_link" package/"your_folder_name" 
 
-        #rm -rf package/openwrt-package/package/simple-obfs
-        rm -rf package/kenzok8/luci-app-passwall
-        rm -rf package/cpboy/packages/dnscrypt-proxy-full
-        rm -rf package/cpboy/packages/openwrt-dnsforwarder
-        rm -rf package/cpboy/packages/openwrt-simple-obfs
-        rm -rf package/cpboy/packages/openwrt-v2ray-plugin
+        rm -rf package/openwrt-package/package/dns2socks
+        rm -rf package/openwrt-package/package/ipt2socks
+        rm -rf package/openwrt-package/package/kcptun
+        rm -rf package/openwrt-package/package/pdnsd-alt
+        rm -rf package/openwrt-package/package/shadowsocksr-libev
+        rm -rf package/openwrt-package/package/simple-obfs
+        rm -rf package/openwrt-package/package/v2ray
+        rm -rf package/lean/v2ray-plugin
+        rm -rf package/lean/luci-app-verysync
         rm -rf package/lean/luci-app-guest-wifi
         rm -rf package/lean/luci-app-kodexplorer
         rm -rf package/lean/luci-app-pppoe-relay
         rm -rf package/lean/luci-app-ramfree
         rm -rf package/lean/luci-app-softethervpn
         rm -rf package/lean/luci-app-v2ray-server
-        rm -rf package/lean/luci-app-verysync
-
+        
+        rm -rf package/kenzok8/luci-app-passwall
+        rm -rf package/cpboy/packages/dnscrypt-proxy-full
+        rm -rf package/cpboy/packages/openwrt-dnsforwarder
+        rm -rf package/cpboy/packages/openwrt-simple-obfs
+        rm -rf package/cpboy/packages/openwrt-v2ray-plugin
         
         # 再次更新并安装源
         ./scripts/feeds clean
