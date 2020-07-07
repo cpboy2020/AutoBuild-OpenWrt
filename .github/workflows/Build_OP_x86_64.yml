@@ -95,8 +95,8 @@ jobs:
         #git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
         git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
         git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark        
-        #git clone "your_github_link" package/"your_folder_name"   
-	
+        #git clone "your_github_link" package/"your_folder_name" 
+
         #rm -rf package/openwrt-package/package/simple-obfs
         rm -rf package/kenzok8/luci-app-passwall
         rm -rf package/cpboy/packages/dnscrypt-proxy-full
