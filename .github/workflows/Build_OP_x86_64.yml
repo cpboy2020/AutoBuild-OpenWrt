@@ -93,12 +93,22 @@ jobs:
         #git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos     
     
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom
-        git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
+        #git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
         git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
         git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark
         
         #git clone "your_github_link" package/"your_folder_name"   
-        rm -rf package/kenzok8/luci-app-passwall
+
+	#rm -rf /package/openwrt-package/package/simple-obfs
+
+	rm -rf package/kenzok8/luci-app-passwall
+	rm -rf package/kenzok8/luci-app-passwall
+
+        rm -rf package/cpboy/packages/dnscrypt-proxy-full
+        rm -rf package/cpboy/packages/openwrt-dnsforwarder
+	rm -rf package/cpboy/packages/openwrt-simple-obfs
+	rm -rf package/cpboy/packages/openwrt-v2ray-plugin
+
         rm -rf package/lean/luci-app-guest-wifi
         rm -rf package/lean/luci-app-kodexplorer
         rm -rf package/lean/luci-app-pppoe-relay
@@ -106,6 +116,7 @@ jobs:
         rm -rf package/lean/luci-app-softethervpn
         rm -rf package/lean/luci-app-v2ray-server
         rm -rf package/lean/luci-app-verysync
+
         
         # 再次更新并安装源
         ./scripts/feeds clean
@@ -156,4 +167,3 @@ jobs:
       with:
         name: OpenWrt-x86-64 firmware
         path: ./artifact/
-        
