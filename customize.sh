@@ -10,11 +10,11 @@ sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config
 
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings #取消系统默认密码
 
+# Add Compile-ID(cid)
 date=`date +%m.%d.%Y`
 sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='%D Compiled by cpboy'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
+sed -i "s/# REVISION:=x/REVISION:= $date Compiled by cpboy/g" include/version.mk
 
-# Add Compile-ID(cid)
 #cid=$(date "+%Y-%m-%d")
 #sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
