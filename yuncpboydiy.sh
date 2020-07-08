@@ -3,21 +3,19 @@
 # Description: DIY script
 # Lisence: MIT
 # Author: cpboy
-# 
+# #run: cd openwrt && ./prepareCompile.sh
+# chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
 #=================================================
 
 #1. Modify default IP #定制默认IP
 #sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
 
 #2. Add Compile-ID(cid)
-cid=$(date "+%Y-%m-%d")
-sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
+#cid=$(date "+%Y-%m-%d")
+#sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #3.添加自定义源代码
-#run: cd openwrt && ./prepareCompile.sh
-#chmod +x ./cpboydiy.sh && ./cpboydiy.sh
-
-git clone https://github.com/Lienol/openwrt-package package/openwrt-package
+git clone https://github.com/Lienol/openwrt-package package/lienol-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
 #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
 git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
@@ -28,13 +26,14 @@ git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
  #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/copy/luci-app-adguardhome
  #git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos
     
- rm -rf package/openwrt-package/package/dns2socks
- rm -rf package/openwrt-package/package/ipt2socks
- rm -rf package/openwrt-package/package/kcptun
- rm -rf package/openwrt-package/package/pdnsd-alt
- rm -rf package/openwrt-package/package/shadowsocksr-libev
- rm -rf package/openwrt-package/package/simple-obfs
- rm -rf package/openwrt-package/package/v2ray
+ rm -rf package/lienol-package/package/dns2socks
+ rm -rf package/lienol-package/package/ipt2socks
+ rm -rf package/lienol-package/package/kcptun
+ rm -rf package/lienol-package/package/pdnsd-alt
+ rm -rf package/lienol-package/package/shadowsocksr-libev
+ rm -rf package/lienol-package/package/simple-obfs
+ rm -rf package/lienol-package/package/v2ray
+ 
  rm -rf package/lean/v2ray-plugin
  rm -rf package/lean/luci-app-verysync
  rm -rf package/lean/luci-app-guest-wifi
@@ -55,7 +54,7 @@ git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
 #替换自带argon主题。
 cd openwrt/package/lean
 rm -rf luci-theme-argon
-
+cd openwrt
 #git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
 git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
 git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark
