@@ -15,11 +15,13 @@
 #sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #3.添加自定义源代码
+#git clone https://github.com/fw876/helloworld package/cpboy
 git clone https://github.com/Lienol/openwrt-package package/lienol-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
 #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
 git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
 git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
+git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-serverchan
 
  #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash
  #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
@@ -61,7 +63,7 @@ git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom
 
 # 更新feeds文件
-# sed -i 's@#src-git helloworld@src-git helloworld@g' feeds.conf.default #启用helloworld
+sed -i 's@#src-git helloworld@src-git helloworld@g' feeds.conf.default #启用helloworld
 cat feeds.conf.default
 
 # 再次更新并安装源
