@@ -3,8 +3,6 @@
 # Description: DIY script
 # Lisence: MIT
 # Author: cpboy
-# #run: cd openwrt && ./prepareCompile.sh
-# chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
 #=================================================
 
 #1. Modify default IP #定制默认IP
@@ -54,7 +52,7 @@ git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-s
  rm -rf package/cpboy/packages/openwrt-v2ray-plugin
 
 #替换自带argon主题。
-cd openwrt/package/lean
+cd package/lean
 rm -rf luci-theme-argon
 cd openwrt
 #git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
