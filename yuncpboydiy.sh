@@ -21,10 +21,9 @@ git clone https://github.com/Lienol/openwrt-package package/openwrt-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
 #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
 git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
- 
 git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
-         
- #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash       
+
+ #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash
  #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
  #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/copy/luci-app-adguardhome
  #git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos
@@ -54,14 +53,13 @@ git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
  rm -rf package/cpboy/packages/openwrt-v2ray-plugin
 
 #替换自带argon主题。
-cd openwrt/package/lean  
+cd openwrt/package/lean
 rm -rf luci-theme-argon
 
 #git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
 git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
-git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark 
-git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom    
-
+git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark
+git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom
 
 # 更新feeds文件
 # sed -i 's@#src-git helloworld@src-git helloworld@g' feeds.conf.default #启用helloworld
