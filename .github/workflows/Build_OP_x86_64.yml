@@ -79,61 +79,12 @@ jobs:
 
     - name: Import external feeds
       working-directory: ./openwrt
-      run: |      
-        git clone https://github.com/Lienol/openwrt-package package/openwrt-package
-        git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
-        #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
-        git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
-        git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
-                
-        #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash       
-        #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
-        #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/copy/luci-app-adguardhome
-        #git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos
-           
-        rm -rf package/openwrt-package/package/dns2socks
-        rm -rf package/openwrt-package/package/ipt2socks
-        rm -rf package/openwrt-package/package/kcptun
-        rm -rf package/openwrt-package/package/pdnsd-alt
-        rm -rf package/openwrt-package/package/shadowsocksr-libev
-        rm -rf package/openwrt-package/package/simple-obfs
-        rm -rf package/openwrt-package/package/v2ray
-        rm -rf package/lean/v2ray-plugin
-        rm -rf package/lean/luci-app-verysync
-        rm -rf package/lean/luci-app-guest-wifi
-        rm -rf package/lean/luci-app-kodexplorer
-        rm -rf package/lean/luci-app-pppoe-relay
-        rm -rf package/lean/luci-app-ramfree
-        rm -rf package/lean/luci-app-softethervpn
-        rm -rf package/lean/luci-app-v2ray-server
-                
-        rm -rf package/kenzok8/luci-app-passwall
-        rm -rf package/kenzok8/luci-app-ssr-plus
-        rm -rf package/kenzok8/microsocks
-        rm -rf package/kenzok8/redsocks2
-        rm -rf package/cpboy/packages/openwrt-dnsforwarder
-        rm -rf package/cpboy/packages/openwrt-simple-obfs
-        rm -rf package/cpboy/packages/openwrt-v2ray-plugin
-             
-    - name: 替换自带argon主题。
-      run: |
-        cd openwrt/package/lean  
-        rm -rf luci-theme-argon
-        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-        git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
-        git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark 
-        git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom  
-        
-        # 再次更新并安装源
-        ./scripts/feeds clean
-        ./scripts/feeds update -a && ./scripts/feeds install -a
-        
-    - name: 修改插件分类。
+      run: | 
+         
+    - name: 自定义插件及主题--并修改插件分类。
       working-directory: ./openwrt
       run: |
-        #cd openwrt
-        #chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
- 
+        chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh 
         
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
