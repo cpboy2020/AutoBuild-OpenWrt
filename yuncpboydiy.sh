@@ -6,14 +6,14 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-#1. Modify default IP #¶¨ÖÆÄ¬ÈÏIP
+#1. Modify default IP #å®šåˆ¶é»˜è®¤IP
 #sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
 
 # Add Compile-ID(cid)
 cid=$(date "+%Y-%m-%d")
 sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
-#Ìí¼Ó×Ô¶¨ÒåÔ´´úÂë
+#æ·»åŠ è‡ªå®šä¹‰æºä»£ç 
 
 #run: cd openwrt && ./prepareCompile.sh
 #chmod +x ./cpboydiy.sh && ./cpboydiy.sh
@@ -22,7 +22,7 @@ git clone https://github.com/Lienol/openwrt-package package/openwrt-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
 #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
 git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
-git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #ÒÀÀµ°ü
+git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #ä¾èµ–åŒ…
  
 #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash       
 #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
@@ -58,12 +58,12 @@ rm -rf package/cpboy/packages/openwrt-dnsforwarder
 rm -rf package/cpboy/packages/openwrt-simple-obfs
 rm -rf package/cpboy/packages/openwrt-v2ray-plugin
 
-# ÔÙ´Î¸üĞÂ²¢°²×°Ô´
+# å†æ¬¡æ›´æ–°å¹¶å®‰è£…æº
 ./scripts/feeds clean
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
 
-# #×Ô¶¨Òå¶¨ÖÆÑ¡Ïî--ĞŞ¸Ä²å¼ş·ÖÀà 
+# #è‡ªå®šä¹‰å®šåˆ¶é€‰é¡¹--ä¿®æ”¹æ’ä»¶åˆ†ç±» 
 sed -i 's/\"services\"/\"control\"/g' ./package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/services/control/g'  ./package/lean/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
 
