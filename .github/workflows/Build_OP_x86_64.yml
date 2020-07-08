@@ -81,8 +81,8 @@ jobs:
       working-directory: ./openwrt
       run: |
         #修改插件分类
-        cd openwrt
-        chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
+        #cd openwrt
+        #chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
         
         git clone https://github.com/Lienol/openwrt-package package/openwrt-package
         git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
@@ -95,7 +95,6 @@ jobs:
         #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/copy/luci-app-adguardhome
         #git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos     
     
-        #git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
         git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
         git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark 
         git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom       
