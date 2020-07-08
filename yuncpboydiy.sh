@@ -2,8 +2,8 @@
 #=================================================
 # Description: DIY script
 # Lisence: MIT
-# Author: eSirPlayground
-# Youtube Channel: https://goo.gl/fvkdwm 
+# Author: cpboy
+# 
 #=================================================
 
 #1. Modify default IP #定制默认IP
