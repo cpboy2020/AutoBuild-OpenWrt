@@ -84,7 +84,6 @@ jobs:
     - name: 自定义插件及主题--并修改插件分类。
       working-directory: ./openwrt
       run: |
-        chmod -R 777 ./yuncpboydiy.sh
         chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
                
     #- name: Prepare feeds
