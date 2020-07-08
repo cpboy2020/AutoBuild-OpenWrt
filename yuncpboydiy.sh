@@ -74,11 +74,11 @@ sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-adguardhome/l
 sed -i 's/services/dns/g' |xargs grep services -rl openwrt/package/kenzok8/luci-app-adguardhome/luasrc/view/AdGuardHome/*.htm
 
 sed -i 's/\"services\"/\"vpn\"/g' openwrt/package/kenzok8/luci-app-clash/luasrc/controller/clash.lua
-sed -i 's/\"services\"/\"vpn\"/g' openwrt/package//kenzo/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
+sed -i 's/\"services\"/\"vpn\"/g' openwrt/package//kenzok8/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
 sed -i 's/services/vpn/g' |xargs grep services -rl openwrt/package/kenzok8/luci-app-clash/luasrc/view/clash/*.htm
 
 sed -i 's/\"services\"/\"vpn\"/g' openwrt/package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/controller/openclash.lua
-sed -i 's/\"services\"/\"vpn\"/g' openwrt/package/kenzo/luci-app-openclash/files/usr/lib/lua/luci/model/cbi/openclash/*.lua
+sed -i 's/\"services\"/\"vpn\"/g' openwrt/package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/model/cbi/openclash/*.lua
 sed -i 's/services/vpn/g' |xargs grep services -rl openwrt/package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/view/openclash/*.htm
 
 sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
