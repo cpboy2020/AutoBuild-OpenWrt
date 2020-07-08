@@ -83,7 +83,6 @@ jobs:
                         
     - name: 自定义插件及主题--并修改插件分类。
       run: |
-        cd openwrt
         chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
                
     #- name: Prepare feeds
