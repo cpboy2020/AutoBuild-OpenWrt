@@ -66,8 +66,8 @@ sed -i 's@#src-git helloworld@src-git helloworld@g' feeds.conf.default #启用he
 cat feeds.conf.default
 
 # 再次更新并安装源
-./scripts/feeds clean
-./scripts/feeds update -a && ./scripts/feeds install -a
+#./scripts/feeds clean
+#./scripts/feeds update -a && ./scripts/feeds install -a
 
 
 # #自定义定制选项--修改插件分类 
@@ -78,16 +78,16 @@ cat feeds.conf.default
 #sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
 #sed -i 's/services/dns/g' |xargs grep services -rl package/kenzok8/luci-app-adguardhome/luasrc/view/AdGuardHome/*.htm
 
-sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzok8/luci-app-adguardhome/luasrc`
-sed -i 's/services/dns/g' `grep services -rl --include="*.htm" ./package/kenzok8/luci-app-adguardhome/luasrc`
+sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-adguardhome/luasrc`
+sed -i 's/services/dns/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-adguardhome/luasrc`
 
 
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/controller/clash.lua
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
 #sed -i 's/services/vpn/g' |xargs grep services -rl package/kenzok8/luci-app-clash/luasrc/view/clash/*.htm
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzok8/luci-app-clash/luasrc`
-sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" ./package/kenzok8/luci-app-clash/luasrc`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-clash/luasrc`
+sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-clash/luasrc`
 
 
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/controller/openclash.lua
