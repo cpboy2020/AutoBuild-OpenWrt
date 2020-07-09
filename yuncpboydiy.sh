@@ -67,7 +67,7 @@ cat feeds.conf.default
 
 # 再次更新并安装源
 #./scripts/feeds clean
-#./scripts/feeds update -a && ./scripts/feeds install -a
+./scripts/feeds update -a && ./scripts/feeds install -a
 
 
 # #自定义定制选项--修改插件分类 
