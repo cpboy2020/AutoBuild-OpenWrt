@@ -78,39 +78,39 @@ cat feeds.conf.default
 #sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
 #sed -i 's/services/dns/g' |xargs grep services -rl package/kenzok8/luci-app-adguardhome/luasrc/view/AdGuardHome/*.htm
 
-sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-adguardhome/luasrc/`
-sed -i 's/services/dns/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-adguardhome/luasrc/`
+sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" openwrt/package/kenzok8/luci-app-adguardhome/luasrc/`
+sed -i 's/services/dns/g' `grep services -rl --include="*.htm" openwrt/package/kenzok8/luci-app-adguardhome/luasrc/`
 
 
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/controller/clash.lua
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
 #sed -i 's/services/vpn/g' |xargs grep services -rl package/kenzok8/luci-app-clash/luasrc/view/clash/*.htm
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-clash/luasrc/`
-sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-clash/luasrc/`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" openwrt/package/kenzok8/luci-app-clash/luasrc/`
+sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" openwrt/package/kenzok8/luci-app-clash/luasrc/`
 
 
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/controller/openclash.lua
 #sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' |xargs grep services -rl package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/view/openclash/*.htm
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua"  ./package/kenzok8/luci-app-openclash/`
-sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" ./package/kenzok8/luci-app-openclash/`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua"  openwrt/package/kenzok8/luci-app-openclash/`
+sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" openwrt/package/kenzok8/luci-app-openclash/`
 
 
-sed -i 's/\"services\"/\"dns\"/g' ./package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
+sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
 
-sed -i 's/\"services\"/\"dns\"/g' ./package/kenzok8/luci-app-smartdns/luasrc/controller/smartdns.lua
-sed -i 's/services/dns/g' ./package/kenzok8/luci-app-smartdns/luasrc/view/smartdns/smartdns_status.htm
+sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-smartdns/luasrc/controller/smartdns.lua
+sed -i 's/services/dns/g' openwrt/package/kenzok8/luci-app-smartdns/luasrc/view/smartdns/smartdns_status.htm
 
-sed -i 's/\"services\"/\"control\"/g' ./package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
-sed -i 's/services/control/g' ./package/lean/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
+sed -i 's/\"services\"/\"control\"/g' openwrt/package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
+sed -i 's/services/control/g' openwrt/package/lean/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
 
-sed -i 's/\"system\"/\"control\"/g' ./package/lean/luci-app-autoreboot/luasrc/controller/autoreboot.lua
+sed -i 's/\"system\"/\"control\"/g' openwrt/package/lean/luci-app-autoreboot/luasrc/controller/autoreboot.lua
 
-sed -i 's/\"services\"/\"dns\"/g' ./package/lean/luci-app-dnsforwarder/luasrc/controller/dnsforwarder.lua
+sed -i 's/\"services\"/\"dns\"/g' openwrt/package/lean/luci-app-dnsforwarder/luasrc/controller/dnsforwarder.lua
 
-sed -i 's/\"services\"/\"nas\"/g' ./package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
+sed -i 's/\"services\"/\"nas\"/g' openwrt/package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
 sed -i 's/services/nas/g' ./package/lean/luci-app-familycloud/luasrc/view/familycloud/familycloud_status.htm
 
 #sed -i 's/\"services\"/\"vpn\"/g' feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
