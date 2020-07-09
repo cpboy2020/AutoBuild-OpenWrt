@@ -16,40 +16,41 @@
 #git clone https://github.com/fw876/helloworld package/cpboy
 git clone https://github.com/Lienol/openwrt-package package/lienol-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
-#git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
+
 git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
 git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
 git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-serverchan
 
- #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash
- #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
- #git clone https://github.com/rufengsuixing/luci-app-adguardhome package/copy/luci-app-adguardhome
- #git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos
+#git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
+#git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash
+#git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
+#git clone https://github.com/rufengsuixing/luci-app-adguardhome package/copy/luci-app-adguardhome
+#git clone https://github.com/garypang13/luci-app-eqos package/copy/luci-app-eqos
     
- rm -rf package/lienol-package/package/dns2socks
- rm -rf package/lienol-package/package/ipt2socks
- rm -rf package/lienol-package/package/kcptun
- rm -rf package/lienol-package/package/pdnsd-alt
- rm -rf package/lienol-package/package/shadowsocksr-libev
- rm -rf package/lienol-package/package/simple-obfs
- rm -rf package/lienol-package/package/v2ray
+rm -rf package/lienol-package/package/dns2socks
+rm -rf package/lienol-package/package/ipt2socks
+rm -rf package/lienol-package/package/kcptun
+rm -rf package/lienol-package/package/pdnsd-alt
+rm -rf package/lienol-package/package/shadowsocksr-libev
+rm -rf package/lienol-package/package/simple-obfs
+rm -rf package/lienol-package/package/v2ray
  
- rm -rf package/lean/v2ray-plugin
- rm -rf package/lean/luci-app-verysync
- rm -rf package/lean/luci-app-guest-wifi
- rm -rf package/lean/luci-app-kodexplorer
- rm -rf package/lean/luci-app-pppoe-relay
- rm -rf package/lean/luci-app-ramfree
- rm -rf package/lean/luci-app-softethervpn
- rm -rf package/lean/luci-app-v2ray-server
+rm -rf package/lean/v2ray-plugin
+rm -rf package/lean/luci-app-verysync
+rm -rf package/lean/luci-app-guest-wifi
+rm -rf package/lean/luci-app-kodexplorer
+rm -rf package/lean/luci-app-pppoe-relay
+rm -rf package/lean/luci-app-ramfree
+rm -rf package/lean/luci-app-softethervpn
+rm -rf package/lean/luci-app-v2ray-server
          
- rm -rf package/kenzok8/luci-app-passwall
- rm -rf package/kenzok8/luci-app-ssr-plus
- rm -rf package/kenzok8/microsocks
- rm -rf package/kenzok8/redsocks2
- rm -rf package/cpboy/packages/openwrt-dnsforwarder
- rm -rf package/cpboy/packages/openwrt-simple-obfs
- rm -rf package/cpboy/packages/openwrt-v2ray-plugin
+rm -rf package/kenzok8/luci-app-passwall
+rm -rf package/kenzok8/luci-app-ssr-plus
+rm -rf package/kenzok8/microsocks
+rm -rf package/kenzok8/redsocks2
+rm -rf package/cpboy/packages/openwrt-dnsforwarder
+rm -rf package/cpboy/packages/openwrt-simple-obfs
+rm -rf package/cpboy/packages/openwrt-v2ray-plugin
 
 #替换自带argon主题。
 cd package/lean
@@ -70,11 +71,19 @@ cat feeds.conf.default
 
 
 # #自定义定制选项--修改插件分类 
-sed -i 's/\"services\"/\"dns\"/g'package/kenzok8/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
-sed -i 's/services/dns/g' |xargs grep services -rl package/kenzok8/luci-app-adguardhome/luasrc/view/AdGuardHome/*.htm
+
+#sed -i s/yyyy/xxxx/g `grep yyyy -rl --include="*.txt" ./`
+#作用：将当前目录(包括子目录)中所有txt文件中的yyyy字符串替换为xxxx字符串
+
+#sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
+#sed -i 's/services/dns/g' |xargs grep services -rl package/kenzok8/luci-app-adguardhome/luasrc/view/AdGuardHome/*.htm
+
+sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-adguardhome/luasrc`
+sed -i 's/services/dns/g'  `|xargs grep services -rl --include="*.htm" package/kenzok8/luci-app-adguardhome/luasrc`
+
 
 sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/controller/clash.lua
-sed -i 's/\"services\"/\"vpn\"/g' package//kenzok8/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
+sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
 sed -i 's/services/vpn/g' |xargs grep services -rl package/kenzok8/luci-app-clash/luasrc/view/clash/*.htm
 
 sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/controller/openclash.lua
