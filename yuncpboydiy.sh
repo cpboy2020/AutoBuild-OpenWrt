@@ -97,6 +97,10 @@ sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" openwrt/package/k
 sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua"  openwrt/package/kenzok8/luci-app-openclash/`
 sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" openwrt/package/kenzok8/luci-app-openclash/`
 
+#sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package//kenzo/luci-app-openclash/`
+#sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" ./package//kenzo/luci-app-openclash/`
+
+
 
 sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
 
