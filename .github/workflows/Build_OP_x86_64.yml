@@ -75,7 +75,6 @@ jobs:
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        ./scripts/feeds install -a
 
     - name: Import external feeds
       working-directory: ./openwrt
@@ -83,7 +82,7 @@ jobs:
                         
     - name: 自定义插件及主题--并修改插件分类。
       run: |
-        chmod +x ./yuncpboydiy.sh && ./yuncpboydiy.sh
+        chmod +x ./yunleandiy.sh && ./yunleandiy.sh
                
     #- name: Prepare feeds
       #run: cd openwrt && ./prepareCompile.sh
