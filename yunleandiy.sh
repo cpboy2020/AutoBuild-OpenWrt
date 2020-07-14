@@ -17,9 +17,9 @@
 git clone https://github.com/Lienol/openwrt-package package/lienol-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
 
-git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
-git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
-git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-serverchan
+#git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
+#git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
+#git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-serverchan
 
 #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
 #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash
