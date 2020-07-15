@@ -13,14 +13,13 @@
 #sed -i "s/R20.6.18/R20.6.20[${cid}] Compiled by cpboy/g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #3.添加自定义源代码
-#git clone https://github.com/fw876/helloworld package/cpboy
 git clone https://github.com/Lienol/openwrt-package package/lienol-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
 
 #git clone https://github.com/liuwenwv/luci-app-vssr-plus package/copy/luci-app-vssr-plus
 #git clone https://github.com/Leo-Jo-My/diy package/cpboy/packages  #依赖包
-#git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-serverchan
 
+#git clone https://github.com/tty228/luci-app-serverchan package/cpboy/luci-app-serverchan
 #git clone https://github.com/jerrykuku/luci-app-vssr package/copy/luci-app-vssr
 #git clone https://github.com/frainzy1477/luci-app-clash package/copy/luci-app-clash
 #git clone -b master --single-branch https://github.com/vernesong/OpenClash package/copy/openclash
@@ -53,20 +52,20 @@ rm -rf package/cpboy/packages/openwrt-simple-obfs
 rm -rf package/cpboy/packages/openwrt-v2ray-plugin
 
 #替换自带argon主题。
-cd package/lean
-rm -rf luci-theme-argon
-cd openwrt
-#git clone -b 18.06 --single-branch https://github.com/jerrykuku/luci-theme-argon package/copy/luci-theme-argon--cpboy-mod
+
+rm -rf package/lean/luci-theme-argon
+
 git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
 git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom
 
 # 更新feeds文件
-sed -i 's@#src-git helloworld@src-git helloworld@g' feeds.conf.default #启用helloworld
+sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default #启用helloworld
+
 cat feeds.conf.default
 
 # 再次更新并安装源
-#./scripts/feeds clean
+./scripts/feeds clean
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
 
@@ -75,49 +74,31 @@ cat feeds.conf.default
 #sed -i s/yyyy/xxxx/g `grep yyyy -rl --include="*.txt" ./`
 #作用：将当前目录(包括子目录)中所有txt文件中的yyyy字符串替换为xxxx字符串
 
-#sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
-#sed -i 's/services/dns/g' |xargs grep services -rl package/kenzok8/luci-app-adguardhome/luasrc/view/AdGuardHome/*.htm
+sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-adguardhome/`
+sed -i 's/services/dns/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-adguardhome/`
 
-sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" openwrt/package/kenzok8/luci-app-adguardhome/luasrc/`
-sed -i 's/services/dns/g' `grep services -rl --include="*.htm" openwrt/package/kenzok8/luci-app-adguardhome/luasrc/`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-clash/`
+sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-clash/`
 
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua"  package/kenzok8/luci-app-openclash/`
+sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" package/kenzok8/luci-app-openclash/`
 
-#sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/controller/clash.lua
-#sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-clash/luasrc/model/cbi/clash/*/*.lua
-#sed -i 's/services/vpn/g' |xargs grep services -rl package/kenzok8/luci-app-clash/luasrc/view/clash/*.htm
+sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" openwrt/package/kenzok8/luci-app-clash/luasrc/`
-sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" openwrt/package/kenzok8/luci-app-clash/luasrc/`
+sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-smartdns/luasrc/controller/smartdns.lua
+sed -i 's/services/dns/g' package/kenzok8/luci-app-smartdns/luasrc/view/smartdns/smartdns_status.htm
 
+sed -i 's/\"services\"/\"control\"/g' package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
+sed -i 's/services/control/g' package/lean/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
 
-#sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/controller/openclash.lua
-#sed -i 's/\"services\"/\"vpn\"/g' package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/model/cbi/openclash/*.lua
-#sed -i 's/services/vpn/g' |xargs grep services -rl package/kenzok8/luci-app-openclash/files/usr/lib/lua/luci/view/openclash/*.htm
+sed -i 's/\"system\"/\"control\"/g' package/lean/luci-app-autoreboot/luasrc/controller/autoreboot.lua
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua"  openwrt/package/kenzok8/luci-app-openclash/`
-sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" openwrt/package/kenzok8/luci-app-openclash/`
+sed -i 's/\"services\"/\"dns\"/g' package/lean/luci-app-dnsforwarder/luasrc/controller/dnsforwarder.lua
 
-#sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package//kenzo/luci-app-openclash/`
-#sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" ./package//kenzo/luci-app-openclash/`
-
-
-
-sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
-
-sed -i 's/\"services\"/\"dns\"/g' openwrt/package/kenzok8/luci-app-smartdns/luasrc/controller/smartdns.lua
-sed -i 's/services/dns/g' openwrt/package/kenzok8/luci-app-smartdns/luasrc/view/smartdns/smartdns_status.htm
-
-sed -i 's/\"services\"/\"control\"/g' openwrt/package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
-sed -i 's/services/control/g' openwrt/package/lean/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
-
-sed -i 's/\"system\"/\"control\"/g' openwrt/package/lean/luci-app-autoreboot/luasrc/controller/autoreboot.lua
-
-sed -i 's/\"services\"/\"dns\"/g' openwrt/package/lean/luci-app-dnsforwarder/luasrc/controller/dnsforwarder.lua
-
-sed -i 's/\"services\"/\"nas\"/g' openwrt/package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
+sed -i 's/\"services\"/\"nas\"/g' package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
 sed -i 's/services/nas/g' ./package/lean/luci-app-familycloud/luasrc/view/familycloud/familycloud_status.htm
 
-#sed -i 's/\"services\"/\"vpn\"/g' feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-#sed -i 's/services/vpn/g' |xargs grep services -rl feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+sed -i 's/\"services\"/\"vpn\"/g' feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/services/vpn/g' |xargs grep services -rl feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 
 #sed -i 's/\""network"\"/\"nas\"/g' package/lean/*/luasrc/controller/eqos.lua
