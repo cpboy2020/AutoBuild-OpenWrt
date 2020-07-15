@@ -58,12 +58,10 @@ rm -rf package/lean/luci-theme-argon
 git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/copy/luci-theme-atmaterial-ColorIcon
 git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/cpboy/luci-theme-Butterfly-dark
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/copy/luci-theme-infinityfreedom
-
+cd openwrt
 # 更新feeds文件
 sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default #启用helloworld
-
 cat feeds.conf.default
-
 # 再次更新并安装源
 ./scripts/feeds clean
 ./scripts/feeds update -a && ./scripts/feeds install -a
