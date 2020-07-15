@@ -82,7 +82,6 @@ jobs:
                         
     - name: 自定义插件及主题--并修改插件分类。
       run: |
-        cd openwrt
         chmod +x ./yunleandiy.sh && ./yunleandiy.sh
                
     #- name: Prepare feeds
