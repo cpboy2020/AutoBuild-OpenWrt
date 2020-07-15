@@ -78,13 +78,13 @@ sed -i 's/services/dns/g' `grep services -rl --include="*.htm" package/kenzok8/l
 sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-clash/`
 sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-clash/`
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua"  package/kenzok8/luci-app-openclash/`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-openclash/`
 sed -i 's/services/vpn/g' `grep services -rl  --include="*.htm" package/kenzok8/luci-app-openclash/`
 
-sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-aliddns/luasrc/controller/aliddns.lua
+sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-aliddns/`
 
-sed -i 's/\"services\"/\"dns\"/g' package/kenzok8/luci-app-smartdns/luasrc/controller/smartdns.lua
-sed -i 's/services/dns/g' package/kenzok8/luci-app-smartdns/luasrc/view/smartdns/smartdns_status.htm
+sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" package/kenzok8/luci-app-smartdns/`
+sed -i 's/services/dns/g' `grep services -rl --include="*.htm" package/kenzok8/luci-app-smartdns/`
 
 sed -i 's/\"services\"/\"control\"/g' package/lean/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/services/control/g' package/lean/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
@@ -94,7 +94,7 @@ sed -i 's/\"system\"/\"control\"/g' package/lean/luci-app-autoreboot/luasrc/cont
 sed -i 's/\"services\"/\"dns\"/g' package/lean/luci-app-dnsforwarder/luasrc/controller/dnsforwarder.lua
 
 sed -i 's/\"services\"/\"nas\"/g' package/lean/luci-app-familycloud/luasrc/controller/familycloud.lua
-sed -i 's/services/nas/g' ./package/lean/luci-app-familycloud/luasrc/view/familycloud/familycloud_status.htm
+sed -i 's/services/nas/g' package/lean/luci-app-familycloud/luasrc/view/familycloud/familycloud_status.htm
 
 sed -i 's/\"services\"/\"vpn\"/g' feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 sed -i 's/services/vpn/g' |xargs grep services -rl feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
