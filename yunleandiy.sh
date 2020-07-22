@@ -130,8 +130,8 @@ sed -i 's/services/dns/g' `grep services -rl --include="*.htm" ./package/kenzo/l
 sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzo/luci-app-smartdns/`
 sed -i 's/services/dns/g' `grep services -rl --include="*.htm" ./package/kenzo/luci-app-smartdns/`
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package//kenzo/luci-app-clash/`
-sed -i 's/services/vpn/g' `grep services -rl --include="*.lua" ./package//kenzo/luci-app-clash/`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzo/luci-app-clash/`
+sed -i 's/services/vpn/g' `grep services -rl --include="*.lua" ./package/kenzo/luci-app-clash/`
 sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" ./package/kenzo/luci-app-clash/`
 
 sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzo/luci-app-openclash/`
