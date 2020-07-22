@@ -19,7 +19,7 @@ sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
 #3.添加自定义源代码
 
 git clone https://github.com/Lienol/openwrt-package package/lienol-package
-git clone https://github.com/kenzok8/openwrt-packages package/kenzok8
+git clone https://github.com/kenzok8/openwrt-packages package/kenzo
 
 git clone https://github.com/lisaac/luci-app-dockerman package/cpboy/luci-app-dockerman
 git clone https://github.com/lisaac/luci-lib-docker package/cpboy/packages/luci-lib-docker #git luci-app-dockerman 依赖
@@ -51,10 +51,10 @@ rm -rf package/lean/luci-app-ramfree
 rm -rf package/lean/luci-app-softethervpn
 rm -rf package/lean/luci-app-v2ray-server
          
-rm -rf package/kenzok8/luci-app-passwall
-rm -rf package/kenzok8/luci-app-ssr-plus
-rm -rf package/kenzok8/microsocks
-rm -rf package/kenzok8/redsocks2
+rm -rf package/kenzo/luci-app-passwall
+rm -rf package/kenzo/luci-app-ssr-plus
+rm -rf package/kenzo/microsocks
+rm -rf package/kenzo/redsocks2
 rm -rf package/cpboy/packages/openwrt-dnsforwarder
 rm -rf package/cpboy/packages/openwrt-simple-obfs
 rm -rf package/cpboy/packages/openwrt-v2ray-plugin
