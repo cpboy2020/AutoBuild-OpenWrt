@@ -97,13 +97,11 @@ sed -i 's/\"system\"/\"control\"/g' `grep \"services\" -rl --include="*.lua" ./p
 sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" ./package/lean/luci-app-dnsforwarder/`
 sed -i 's/services/dns/g' `grep services -rl --include="*.htm" ./package/lean/luci-app-dnsforwarder/`
 
-
 sed -i 's/\"services\"/\"nas\"/g' `grep \"services\" -rl --include="*.lua" ./package/lean/luci-app-familycloud/`
 sed -i 's/services/nas/g' `grep services -rl --include="*.htm" ./package/lean/luci-app-familycloud/`
 
 sed -i 's/\"services\"/\"nas\"/g' `grep \"services\" -rl --include="*.lua" ./package/lean/luci-app-xlnetacc/`
 sed -i 's/services/nas/g' `grep services -rl --include="*.htm" ./package/lean/luci-app-xlnetacc/`
-
 
 sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./feeds/helloworld/luci-app-ssr-plus/`
 sed -i 's/services/vpn/g' `grep services -rl --include="*.lua" ./feeds/helloworld/luci-app-ssr-plus/`
@@ -123,8 +121,6 @@ sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" ./feeds/luci/appl
 sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./feeds/luci/applications/luci-app-openvpn/`
 sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" ./feeds/luci/applications/luci-app-openvpn/`
 
-
-
 sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzo/luci-app-adguardhome/`
 sed -i 's/services/dns/g' `grep services -rl --include="*.htm" ./package/kenzo/luci-app-adguardhome/`
 
@@ -135,8 +131,9 @@ sed -i 's/\"services\"/\"dns\"/g' `grep \"services\" -rl --include="*.lua" ./pac
 sed -i 's/services/dns/g' `grep services -rl --include="*.htm" ./package/kenzo/luci-app-smartdns/`
 
 sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package//kenzo/luci-app-clash/`
+sed -i 's/services/vpn/g' `grep services -rl --include="*.lua" ./package//kenzo/luci-app-clash/`
 sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" ./package/kenzo/luci-app-clash/`
 
-sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package//kenzo/luci-app-openclash/`
-sed -i 's/services/vpn/g' `grep services -rl --include="*.lua" ./package//kenzo/luci-app-openclash/`
+sed -i 's/\"services\"/\"vpn\"/g' `grep \"services\" -rl --include="*.lua" ./package/kenzo/luci-app-openclash/`
+sed -i 's/services/vpn/g' `grep services -rl --include="*.lua" ./package/kenzo/luci-app-openclash/`
 sed -i 's/services/vpn/g' `grep services -rl --include="*.htm" ./package/kenzo/luci-app-openclash/`
