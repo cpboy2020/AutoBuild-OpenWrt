@@ -14,6 +14,8 @@ sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='%D Compiled by cpboy'/g" pa
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
 
 #3.添加自定义源代码
+rm -rf package/kenzo
+rm -rf package/lienol-package
 
 git clone https://github.com/Lienol/openwrt-package package/lienol-package
 git clone https://github.com/kenzok8/openwrt-packages package/kenzo
